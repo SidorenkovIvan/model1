@@ -11,34 +11,34 @@
     <div class="calculator">
         <div>
             <label>
-                <input type="number" class="calculatorInput" value="0">
+                <input type="text" name="result" id="result" class="calculatorInput" value="0">
             </label>
         </div>
 
         <div class="calculatorButtonsWrapper">
-            <button class="button">OFF</button>
+            <button onclick="clearScreen()" class="button">OFF</button>
             <button class="button">+/-</button>
-            <button class="button">√</button>
-            <button class="button">%</button>
+            <button value="√" onclick="setOperator('√')" class="button">√</button>
+            <button value="%" onclick="setOperator('%')" class="button">%</button>
             <button class="button">MRC</button>
             <button class="button">M-</button>
             <button class="button">M+</button>
-            <button class="button">-</button>
-            <button class="button">7</button>
-            <button class="button">8</button>
-            <button class="button">9</button>
-            <button class="button">X</button>
-            <button class="button">4</button>
-            <button class="button">5</button>
-            <button class="button">6</button>
-            <button class="button">^</button>
-            <button class="button">1</button>
-            <button class="button">2</button>
-            <button class="button">3</button>
-            <button class="spanPlus button">+</button>
-            <button class="button">0</button>
-            <button class="button">.</button>
-            <button class="button">=</button>
+            <button value="-" onclick="setOperator('-')" class="button">-</button>
+            <button value="7" onclick="addToScreen(7)" class="button">7</button>
+            <button value="8" onclick="addToScreen(8)" class="button">8</button>
+            <button value="9" onclick="addToScreen(9)" class="button">9</button>
+            <button value="*" onclick="setOperator('*')" class="button">X</button>
+            <button value="4" onclick="addToScreen(4)" class="button">4</button>
+            <button value="5" onclick="addToScreen(5)" class="button">5</button>
+            <button value="6" onclick="addToScreen(6)" class="button">6</button>
+            <button value="^" onclick="setOperator('^')" class="button">^</button>
+            <button value="1" onclick="addToScreen(1)" class="button">1</button>
+            <button value="2" onclick="addToScreen(2)" class="button">2</button>
+            <button value="3" onclick="addToScreen(3)" class="button">3</button>
+            <button value="+" onclick="setOperator('+')" class="spanPlus button">+</button>
+            <button value="0" onclick="addToScreen(0)" class="button">0</button>
+            <button value="." onclick="addToScreen('.')" class="button">.</button>
+            <button value="=" onclick="setOperator('=')" class="button">=</button>
         </div>
     </div>
 </div>
