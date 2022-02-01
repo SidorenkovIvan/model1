@@ -2,6 +2,7 @@ let number1 = null;
 let number2 = null;
 let operator = null;
 let result = false;
+let memoryArray = [];
 
 function addToScreen(value) {
     const screen = document.getElementById("result");
@@ -20,6 +21,7 @@ function clearScreen() {
     number2 = null;
     operator = null;
     result = false;
+    memoryArray = [];
     screen.value = "0";
 }
 
@@ -93,6 +95,49 @@ function getResult(num1, num2, operator) {
             return Number(num1) ** Number(num2);
         case "√":
             return Math.sqrt(Number(num1));
+    }
+}
+
+function memoryCommand(command) {
+    const screen = document.getElementById("result");
+    switch (command) {
+        case "M+":
+            if (result) {
+                memoryArray.push(screen.value);
+                memoryArray.push("+");
+                screen.value = "0";
+                clearCalculations();
+                console.log(memoryArray);
+            }
+            break;
+        case "M-":
+            if (result) {
+                memoryArray.push(screen.value);
+                memoryArray.push("-");
+                screen.value = "0";
+                clearCalculations();
+                console.log(memoryArray);
+            }
+            break;
+        case "MRC":
+            if (memoryArray.length !== 0) {
+                let resultOfMemorySum = 0;
+                console.log(memoryArray);
+                for (let i = 0; i < memoryArray.length; i += 2) {
+                    if (memoryArray[i - 1] === "+") {
+                        resultOfMemorySum += Number(memoryArray[i]);
+                    } else if (memoryArray[i - 1] === "-") {
+                        resultOfMemorySum -= Number(memoryArray[i]);
+                    } else {
+                        resultOfMemorySum = Number(memoryArray[i]);
+                    }
+                }
+
+                screen.value = resultOfMemorySum;
+                clearCalculations();
+                memoryArray = [];
+            }
+            break;
     }
 }
 
